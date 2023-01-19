@@ -1,5 +1,8 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
 }
 
 .page {
@@ -10,7 +13,7 @@ body {
 }
 
 #loginPage {
-    display: flex;
+    display: none;
     background-color: white;
 }
 
@@ -26,5 +29,66 @@ body {
 }
 
 #chatPage {
-    display: none;
+    display: flex;
+}
+
+.chatArea {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    background-color: #ccc;
+}
+
+.chatlist {
+    flex: 1;
+    background-color: #fff;
+    overflow-y: scroll;
+    max-height: calc(100vh - 40px);
+}
+
+.chatlist li {
+    padding: 3px;
+    font-size: 15px;
+}
+
+.chatlist .m-status {
+    color: #333;
+    font-style: italic;
+}
+
+.chatlist .m-txt span {
+    font-weight: bold;
+    color: #00f;
+}
+
+.chatlist .m-txt .me {
+    color: #f00;
+}
+
+.userList {
+    width: 30%;
+    background-color: #ccc;
+    overflow-y: auto;
+    max-height: calc(100vh - 40px);
+}
+
+.userList li {
+    padding: 5px;
+    padding-left: 15px;
+}
+
+.chatInput {
+    width: 100%;
+    display: flex;
+}
+
+#chatTextInput {
+    flex: 1;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 15px;
+    background-color: #fff;
+    outline: 0;
+    border: 0;
+    background-color: rgb(233, 233, 233);
 }
