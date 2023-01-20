@@ -12,7 +12,12 @@ loginPage.style.display = 'flex';
 chatPage.style.display = 'none';
 
 const renderUserList = () => {
-    
+    let ul = document.querySelector('.userList');
+    ul.innerHTML = '';
+
+    userList.forEach(i => {
+        ul.innerHTML += `<li>${i}</li>`;
+    })
 }
 
 loginInput.addEventListener('keyup', (e) => {
