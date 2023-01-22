@@ -22,5 +22,9 @@ io.on('connection', (socket) => {
         console.log(connectedUsers);
 
         socket.emit('user-ok', connectedUsers)
+        socket.broadcast.emit('list-update', {
+            joined: username,
+            list: connectedUsers
+        })
     })
 })
