@@ -27,4 +27,14 @@ io.on('connection', (socket) => {
             list: connectedUsers
         })
     })
+
+    socket.on('disconnect', () => {
+        connectedUsers = connectedUsers.filter(user => user != socket.username);
+        console.log(connectedUsers);
+
+        socket.broadcast.emit('list-update', {
+            left: socket.username,
+            list: connectedUsers
+        })
+    })
 })
