@@ -20,6 +20,19 @@ const renderUserList = () => {
     })
 }
 
+const addMessage = (type, user, message) => {
+    let chatList = document.querySelector('.chatlist');
+
+    switch(type) {
+        case 'status':
+            chatList.innerHTML += `<li  class="m-status">${message}</li>`;
+        break;
+        case 'msg':
+            chatList.innerHTML += `<li class="m-txt"><span>${user}</span>${message}</li>`;
+        break;
+    }
+}
+
 loginInput.addEventListener('keyup', (e) => {
     if(e.keyCode === 13) {
         let name = loginInput.value.trim();
@@ -37,11 +50,21 @@ socket.on('user-ok', (list) => {
     chatPage.style.display = 'flex';
     textInput.focus();
 
+    addMessage('status', null, 'Conectado!')
+
     userList = list;
     renderUserList()
 })
 
 socket.on('list-update', (data) => {
+    if(data.joined) {
+        addMessage('status', null, `${data.joined} entrou no chat.`);
+    }
+
+    if(data.left) {
+        addMessage('status', null, `${data.left} saiu do chat.`);
+    }
+
     userList = data.list;
     renderUserList();
 })
