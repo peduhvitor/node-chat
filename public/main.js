@@ -91,3 +91,7 @@ socket.on('show-msg', (data) => {
 socket.on('disconnect', () => {
     addMessage('status', null, 'Você foi desconectado');
 })
+
+socket.io.on('reconnect_error', () => {
+    addMessage('status', null, 'Tentando reconectar...')
+})
