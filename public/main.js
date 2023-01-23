@@ -97,8 +97,6 @@ socket.io.on('reconnect_error', () => {
 })
 
 socket.io.on('reconnect', () => {
-    addMessage('status', null, 'Reconectado!'); 
-
     if(username != "") {
         socket.emit('join-request', username);
     }
