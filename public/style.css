@@ -56,6 +56,11 @@
     font-style: italic;
 }
 
+.chatlist .m-txt {
+    display: flex;
+    gap: 5px;
+}
+
 .chatlist .m-txt span {
     font-weight: bold;
     color: #00f;
