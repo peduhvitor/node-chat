@@ -87,3 +87,7 @@ socket.on('list-update', (data) => {
 socket.on('show-msg', (data) => {
     addMessage('msg', data.username, data.message)
 })
+
+socket.on('disconnect', () => {
+    addMessage('status', null, 'Você foi desconectado');
+})
