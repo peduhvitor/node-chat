@@ -35,6 +35,8 @@ const addMessage = (type, user, message) => {
             }
         break;
     }
+
+    chatList.scrollTop = chatList.scrollHeight;
 }
 
 loginInput.addEventListener('keyup', (e) => {
@@ -90,6 +92,8 @@ socket.on('show-msg', (data) => {
 
 socket.on('disconnect', () => {
     addMessage('status', null, 'Você foi desconectado');
+    userList = [];
+    renderUserList();
 })
 
 socket.io.on('reconnect_error', () => {
