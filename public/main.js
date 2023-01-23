@@ -28,7 +28,11 @@ const addMessage = (type, user, message) => {
             chatList.innerHTML += `<li  class="m-status">${message}</li>`;
         break;
         case 'msg':
-            chatList.innerHTML += `<li class="m-txt"><span>${user}</span>${message}</li>`;
+            if(username === user) {
+                chatList.innerHTML += `<li class="m-txt"><span class="me">${user}</span>${message}</li>`;
+            } else {
+                chatList.innerHTML += `<li class="m-txt"><span>${user}</span>${message}</li>`;
+            }
         break;
     }
 }
